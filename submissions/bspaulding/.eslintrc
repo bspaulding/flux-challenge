@@ -1,0 +1,14 @@
+{
+  ecmaFeatures: {
+    arrowFunctions: true,
+    blockBindings: true,
+    classes: true,
+    destructuring: true,
+    jsx: true,
+    modules: true,
+    spread: true,
+    objectLiteralShorthandMethods: true,
+    experimentalObjectRestSpread: true,
+    templateStrings: true
+  }
+}
