@@ -76,22 +76,11 @@
 
 	var _selector2 = _interopRequireDefault(_selector);
 
-	var logger = function logger(store) {
-	  return function (next) {
-	    return function (action) {
-	      console.log('dispatching', action);
-	      var result = next(action);
-	      console.log('next state', store.getState());
-	      return result;
-	    };
-	  };
-	};
-
 	function mapDispatchToProps(dispatch) {
 	  return { actions: (0, _redux.bindActionCreators)(_actions2["default"], dispatch) };
 	}
 
-	var store = (0, _redux.applyMiddleware)(logger, _reduxThunk2["default"])(_redux.createStore)(_reducers2["default"]);
+	var store = (0, _redux.applyMiddleware)(_reduxThunk2["default"])(_redux.createStore)(_reducers2["default"]);
 	var ConnectedApp = (0, _reactRedux.connect)(_selector2["default"], mapDispatchToProps)(_componentsApp2["default"]);
 
 	var provider = _react2["default"].createElement(
@@ -903,7 +892,6 @@
 	    var sith = getState().sith;
 	    var linkedSithURL = adjacentSithURL(sith, index);
 	    if (linkedSithURL) {
-	      console.log("loading: " + linkedSithURL);
 	      fetchJSON(linkedSithURL).then(function (jedi) {
 	        dispatch(jediLoaded(jedi, index));
 
@@ -918,8 +906,6 @@
 	          }
 	        }
 	      });
-	    } else {
-	      console.log("No adjacent sith to load, stopping.");
 	    }
 	  };
 	}

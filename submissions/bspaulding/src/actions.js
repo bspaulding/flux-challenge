@@ -43,7 +43,6 @@ function loadJediAtIndex(index) {
     var sith = getState().sith;
     var linkedSithURL = adjacentSithURL(sith, index);
     if (linkedSithURL) {
-      console.log("loading: " + linkedSithURL);
       fetchJSON(linkedSithURL)
         .then(function(jedi) {
           dispatch(jediLoaded(jedi, index));
@@ -59,8 +58,6 @@ function loadJediAtIndex(index) {
             }
           }
         });
-    } else {
-      console.log("No adjacent sith to load, stopping.");
     }
   };
 }
